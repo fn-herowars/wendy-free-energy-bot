@@ -1,6 +1,6 @@
 const cron = require('node-cron');
 const Account = require('../models/Account.js');
-const webClient = require('../web/shop-requests.js');
+const webClient = require('../web/wendys-shop-api-consumer.js');
 
 Start = async () => {
 	cron.schedule('0 * * * *', async () => {
@@ -18,7 +18,7 @@ Start = async () => {
 const requestFreeEnergy = async function (accounts) {
 	for (const account of accounts) {
 		const statusCode = await webClient.RequestFreeEnergy(account.accountId);
-		if (statusCode == 200) {
+		if (statusCode == webClient.HttpStatus.OK) {
 			Account.upsertRewardTime(account.accountId, account.nickname, new Date());
 		}
 		console.log('Reward requested for: ' + account.nickname + ', returned \'' + statusCode + '\'');
