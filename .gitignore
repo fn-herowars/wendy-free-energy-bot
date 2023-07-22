@@ -4,3 +4,9 @@ config.json
 .DS_Store
 
 storage/database.sqlite
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+#Build
+.build/*
