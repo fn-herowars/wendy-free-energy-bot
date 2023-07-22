@@ -9,4 +9,4 @@ storage/database.sqlite
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 #Build
-.build/*
+build/*
